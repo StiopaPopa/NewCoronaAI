@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CoronaAI</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="/index.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+  </head>
+  <body>
+    <div class="nav">
+      <a href="/"
+        ><h1 id="title">
+          Corona<span style="font-weight: bold">AI</span>.lu
+        </h1></a
+      >
+      <a href="../help.html"><h1 id="help">Help</h1></a>
+      <div class="languages">
+        <button class="dropbtn">Language</button>
+        <div class="dropdown-content">
+          <a href="../index.html">🇬🇧 English</a>
+          <a href="../DE/index-de.html">🇩🇪 German</a>
+          <a href="../FR/index-fr.html">🇫🇷 French</a>
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      <h1 id="tagline">
+        All your <span style="font-weight: bold">Coronavirus</span> information
+        <br />in <span style="font-weight: bold">one place</span>
+      </h1>
+      <div id="input-field">
+        <input type="text" id="input" placeholder="Search.."
+        autocomplete="off""/>
+        <button id="search">&#128269;</button>
+      </div>
+      <div id="suggestions">
+        <span style="color: #161616">Suggestions:</span
+        ><span class="suggestion"><a id="cases-ago">Cases 4 days ago</a></span
+        ><span class="suggestion"><a id="symptoms">Symptoms</a></span
+        ><span class="suggestion"
+          ><a id="vaccine-information">Vaccine Information</a></span
+        >
+      </div>
+    </div>
+    <div id="response"></div>
+    <div id="list-facilities"></div>
+    <footer>
+      <a href="/">Corona<span style="font-weight: bold">AI</span>.lu</a>
+      <a href="/resources.html">Resources</a>
+    </footer>
+
+    <!-- TOS consent pop-up modal -->
+    <!-- need to store checkbox value (no need for user to always click 'agree' everytime)-->
+    <!--<div class="bg-modal">
+      <div class="modal-content"></div>
+    </div>-->
+  </body>
+</html>

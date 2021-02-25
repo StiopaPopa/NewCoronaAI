@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "prettier": "2.2.1"
+  },
+  "dependencies": {
+    "p5": "^1.2.0"
+  }
+}
