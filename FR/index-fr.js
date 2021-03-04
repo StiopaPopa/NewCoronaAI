@@ -721,6 +721,7 @@ window.onload = function () {
     } else {
       noResponse();
     }
+    response.scrollIntoView();
   }
   function findFacility(data) {
     let entity = data["prediction"]["entities"];
@@ -938,6 +939,7 @@ window.onload = function () {
     } else {
       noResponse();
     }
+    response.scrollIntoView();
   }
 
   function governmentMeasures(data) {
@@ -1047,6 +1049,7 @@ window.onload = function () {
     } else {
       noResponse();
     }
+    response.scrollIntoView();
   }
 
   function symptoms(data) {
@@ -1210,6 +1213,7 @@ window.onload = function () {
     } else {
       noResponse();
     }
+    response.scrollIntoView();
   }
 
   function vaccineInfo(data) {
@@ -1230,6 +1234,7 @@ window.onload = function () {
       <br><br>
       As the vaccination situation in Luxembourg is constantly changing, please also visit this <a target='_blank' href='https://covid19.public.lu/en/vaccination.html'>website</a> for more information and further updates. 
       `;
+    response.scrollIntoView();
   }
   function vulernable(data) {
     if (data["prediction"]["entities"]["vulnerable_list"]) {
@@ -1318,6 +1323,7 @@ window.onload = function () {
     } else {
       noResponse();
     }
+    response.scrollIntoView();
   }
 
   function noResponse() {

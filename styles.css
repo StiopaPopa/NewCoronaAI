@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 
 * {
@@ -8,7 +12,24 @@
 }
 
 html {
-  background-image: url(./bg.png);
+  /*background-image: url(./bg.png);*/
+  background: rgb(7, 78, 150);
+  background: -moz-linear-gradient(
+    243deg,
+    rgba(7, 78, 150, 1) 35%,
+    rgba(22, 157, 198, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    243deg,
+    rgba(7, 78, 150, 1) 35%,
+    rgba(22, 157, 198, 1) 100%
+  );
+  background: linear-gradient(
+    243deg,
+    rgba(7, 78, 150, 1) 35%,
+    rgba(22, 157, 198, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#074e96",endColorstr="#169dc6",GradientType=1);
 }
 
 .nav a {
@@ -331,6 +352,21 @@ p {
 
 .pharmacy p {
   font-size: 16px;
+}
+
+#subnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+}
+
+#subnav h2 {
+  color: white;
+  font-size: 35px;
+  letter-spacing: 0.8px;
+  font-weight: normal;
 }
 
 /*.bg-modal {

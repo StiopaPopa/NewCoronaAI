@@ -114,3 +114,18 @@ footer {
 .languages:hover .dropdown-content {
   display: block;
 }
+
+#subnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+}
+
+#subnav h2 {
+  color: white;
+  font-size: 35px;
+  letter-spacing: 0.8px;
+  font-weight: normal;
+}
