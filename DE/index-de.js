@@ -627,96 +627,113 @@ window.onload = function () {
     if (entity["standard_care"]) {
       if (status == "y") {
         let stat = CSV[row]["Soins normaux"];
-        response.innerHTML = stat + " people were in standard care on " + date;
+        response.innerHTML =
+          stat + " Personen waren auf der Normalstation am " + date;
       } else {
         // get latest data
         let latestStat = CSV[CSV.length - 1]["Soins normaux"];
         let latestDate = CSV[CSV.length - 1]["Date"];
         response.innerHTML =
           latestStat +
-          " people were last recorded in standard care as of " +
-          latestDate;
+          " Personen wurden <b>zuletzt</b> am " +
+          latestDate +
+          " auf der Normalstation aufgezeichnet";
       }
     } else if (entity["intensive_care"]) {
       if (status == "y") {
         let stat = CSV[row]["Soins intensifs"];
-        response.innerHTML = stat + " people were in intensive care on " + date;
+        response.innerHTML =
+          stat + " Personen waren auf der Intensivstation am " + date;
       } else {
         // get latest data
         let latestStat = CSV[CSV.length - 1]["Soins intensifs"];
         let latestDate = CSV[CSV.length - 1]["Date"];
         response.innerHTML =
           latestStat +
-          " people were <b>last</b> recorded in intensive care as of " +
-          latestDate;
+          " Personen wurden <b>zuletzt</b> am " +
+          latestDate +
+          " auf der Intensivstation aufgezeichnet";
       }
     } else if (entity["total_deaths"]) {
       if (status == "y") {
         let stat = CSV[row]["[1.NbMorts]"];
-        response.innerHTML = stat + " total deaths were recorded as of " + date;
+        response.innerHTML =
+          stat + " Gesamtsterbefälle wurden am " + date + " aufgezeichnet";
       } else {
         // get latest data
         let latestStat = CSV[CSV.length - 1]["[1.NbMorts]"];
         let latestDate = CSV[CSV.length - 1]["Date"];
         response.innerHTML =
           latestStat +
-          " total deaths were <b>last</b> recorded as of " +
-          latestDate;
+          " Gesamtsterbefälle wurden <b>zuletzt</b> am " +
+          latestDate +
+          " aufgezeichnet";
       }
     } else if (entity["total_cases"]) {
       if (status == "y") {
         let stat = CSV[row]["Nb de positifs cumul�"];
         response.innerHTML =
-          stat + " total positive COVID-19 cases were recorded as of " + date;
+          stat +
+          " gesamte positive COVID-19 Fälle wurden am " +
+          date +
+          " aufgezeichnet";
       } else {
         // get latest data
         let latestStat = CSV[CSV.length - 1]["Nb de positifs cumul�"];
         let latestDate = CSV[CSV.length - 1]["Date"];
         response.innerHTML =
           latestStat +
-          " total positive COVID-19 cases were <b>last</b> recorded as of " +
-          latestDate;
+          " gesamte positive COVID-19 Fälle wurden <b>zuletzt</b> am " +
+          latestDate +
+          " aufgezeichnet";
       }
     } else if (entity["new_cases"]) {
       if (status == "y") {
         let stat = CSV[row]["Nb de positifs"];
         response.innerHTML =
-          stat + " new positive COVID-19 cases were recorded as of " + date;
+          stat +
+          " neue positive COVID-19 Fälle wurden am " +
+          date +
+          " aufgezeichnet";
       } else {
         // get latest data
         let latestStat = CSV[CSV.length - 1]["Nb de positifs"];
         let latestDate = CSV[CSV.length - 1]["Date"];
         response.innerHTML =
           latestStat +
-          " new positive COVID-19 cases were <b>last</b> recorded as of " +
-          latestDate;
+          " neue positive COVID-19 Fälle wurden <b>zuletzt</b> am " +
+          latestDate +
+          " aufgezeichnet";
       }
     } else if (entity["new_tests"]) {
       if (status == "y") {
         let stat = CSV[row]["Nb de tests effectu�s"];
-        response.innerHTML = stat + " new PCR-tests were conducted on " + date;
+        response.innerHTML =
+          stat + " neue PCR-Tests wurden am " + date + " durchgeführt";
       } else {
         // get latest data
         let latestStat = CSV[CSV.length - 1]["Nb de tests effectu�s"];
         let latestDate = CSV[CSV.length - 1]["Date"];
         response.innerHTML =
           latestStat +
-          " new PCR-tests were <b>last</b> recorded as of " +
-          latestDate;
+          " neue PCR-Tests wurden <b>zuletzt</b> am " +
+          latestDate +
+          " aufgezeichnet";
       }
     } else if (entity["total_tests"]) {
       if (status == "y") {
         let stat = CSV[row]["Nb de tests effectu�s cumul�s"];
         response.innerHTML =
-          stat + " total PCR-tests were conducted as of " + date;
+          stat + " gesamte PCR-Tests wurden am " + date + " durchgeführt";
       } else {
         // get latest data
         let latestStat = CSV[CSV.length - 1]["Nb de tests effectu�s cumul�s "];
         let latestDate = CSV[CSV.length - 1]["Date"];
         response.innerHTML =
           latestStat +
-          " total PCR-tests were <b>last</b> recorded as of " +
-          latestDate;
+          " gesamte PCR-Tests wurden <b>zuletzt</b> am " +
+          latestDate +
+          " aufgezeichnet";
       }
     } else {
       noResponse();
@@ -727,9 +744,9 @@ window.onload = function () {
     let entity = data["prediction"]["entities"];
     if (entity["hotline"]) {
       response.innerHTML = `
-          Below are the hotline numbers you can use Monday-Friday 8:00-18:00 and Saturday-Sunday 10:00-18:00
+      Nachfolgend finden Sie die Hotline-Nummern, die Sie von Montag bis Freitag von 8:00 bis 18:00 Uhr und von Samstag bis Sonntag von 10:00 bis 18:00 Uhr verwenden können
           <br><br>
-          <b>COVID-19 Health Helpling</b>
+          <b>COVID-19 Gesundheitshilfe</b>
           <br>
           247-65533
           <br><br>
@@ -746,42 +763,42 @@ window.onload = function () {
     } else if (entity["testing_centre"]) {
       // all testing centres
       const testBascharange = {
-        "Name": "Testing Centre - Bascharange",
+        "Name": "Testzentrum - Bascharange",
         "Commune": "Käerjeng / Bascharage",
         "Address": "Rue Heierchen L-4940 Bascharage",
       };
       const testEschSurAlzette = {
-        "Name": "Testing Centre - Esch-sur-Alzette",
+        "Name": "Testzentrum - Esch-sur-Alzette",
         "Commune": "Raemerich / Esch-sur-Alzette",
         "Address": "Route d’esch L4310 Raemerich",
       };
       const testHosingen = {
-        "Name": "Testing Centre - Hosingen",
+        "Name": "Testzentrum - Hosingen",
         "Commune": "Walhausen",
         "Address": "Between Schinkert and “Parc Hosingen” L-9841 Walhausen",
       };
       const testHowald = {
-        "Name": "Testing Centre - Howald",
+        "Name": "Testzentrum - Howald",
         "Commune": "Howald",
         "Address": "1, rue In Bouler L-1350 Howald",
       };
       const testLuxembourg = {
-        "Name": "Testing Centre - Luxembourg / Bouillon (walk-/drive-in)",
+        "Name": "Testzentrum - Luxembourg / Bouillon (walk-/drive-in)",
         "Commune": "Luxembourg / Hollerich",
         "Address": "Rue de Bouillon L-1248 Luxembourg-Hollerich",
       };
       const testGrevenmacher = {
-        "Name": "Testing Centre - Grevenmacher",
+        "Name": "Testzentrum - Grevenmacher",
         "Commune": "Grevenmacher",
         "Address": "Rue de Machtum L-6753 Grevenmacher",
       };
       const testSchieren = {
-        "Name": "Testing Centre - Schieren",
+        "Name": "Testzentrum - Schieren",
         "Commune": "Schieren",
         "Address": "Route de Luxembourg L-9125 Schieren",
       };
       const testSteinfort = {
-        "Name": "Testing Centre - Steinfort",
+        "Name": "Testzentrum - Steinfort",
         "Commune": "Steinfort",
         "Address": "Rue Collart L-8414 Steinfort",
       };
@@ -800,35 +817,35 @@ window.onload = function () {
         typeof entity["testing_centre"][1] != "undefined"
       ) {
         response.innerHTML = `
-            If you have received a medical prescription for a COVID-19 test by your doctor, you can get a COVID-19 test by making an appointment at one of the testing laboratories in Luxembourg. <b>A Large Scale Testing invitation cannot be used at any testing laboratory</b>.
+        Wenn Sie von Ihrem Arzt ein ärztliches Rezept für einen COVID-19-Test erhalten haben, können Sie einen COVID-19-Test erhalten, indem Sie einen Termin in einem der Testlabors in Luxemburg (Bionext Lab, Laboratories Ketterhill und Laboratories Réunis) vereinbaren. Eine LST-Einladung kann nicht in einem Prüflabor verwendet werden.
             <br><br>
-            Below is a list of testing laboratories in Luxembourg. Simply click on the laboratory you want to find more information about (for finding opening times, making an appointment, etc.):
+            Nachfolgend finden Sie eine Liste der Prüflabore in Luxemburg. Klicken Sie einfach auf das Labor, über das Sie weitere Informationen erhalten möchten (um Öffnungszeiten zu ermitteln, einen Termin zu vereinbaren usw.):
             <br><br>
-            - <a target='_blank' href='https://www.bionext.lu/en/p/bionext-lab-coronavirus-sars-cov-2-informations'>Bionext Lab</a>
+            - <a target='_blank' href='https://www.bionext.lu/de/covid19'>Bionext Lab</a>
             <br>
-            - <a target='_blank' href='https://www.ketterthill.lu/en/test-coronavirus.html'>Laboratoires Ketterthill</a>
+            - <a target='_blank' href='https://www.ketterthill.lu/de/test-coronavirus.html'>Laboratoires Ketterthill</a>
             <br>
-            - <a target='_blank' href='https://www.labo.lu/en/index'>Laboratoires Réunis</a> (Strasses and P&R Junglinster)
+            - <a target='_blank' href='https://www.labo.lu/de/index'>Laboratoires Réunis</a>
             <br>
-            - <a target='_blank' href='https://rdv.lns.lu/en/index.html'>Sampling Centre (Centre de prélèvement) for COVID-19 tests LNS</a> in Dudelange for people over 6 years old. Open by appointment only (appointments can be made via www.lns.lu). 
+            - <a target='_blank' href='https://rdv.lns.lu/de/index.html'>LNS-Probeentnahmezentrum (Centre de prélèvement) für COVID-19-Test </a>
             <br>
-            - <a target='_blank' href='https://ligue.lu/'>Medico-Social League</a> for children between 2 and 6 years of age. Appointments can also be made <a target='_blank' href='https://ligue.lu/home/tracing-reservation-en-ligne'>here</a>.
+            - <a target='_blank' href='https://ligue.lu/'>Ligue Médico-Sociale</a> für Kinder zwischen 2 und 6 Jahren. Termine können <a target='_blank' href='https://ligue.lu/home/tracing-reservation-en-ligne-1'>hier</a> vereinbart werden.
             `;
       } else {
         response.innerHTML = `
-            There are three ways to receive a COVID-19 test in Luxembourg:
+        Es gibt drei Möglichkeiten, einen COVID-19-Test in Luxemburg zu erhalten:
             <br><br>
-            1. If you have received a <b>Large Scale Testing (LST) invitation</b>, you can get a COVID-19 test at one of the LST stations. A medical prescription <b>cannot</b> be used at an LST station. <b>Do not wait</b> for an LST invitation if you suspect that you may have COVID-19.
+            1. Wenn Sie eine <b>Einladung zum Large Scale Testing (LST)</b> erhalten haben, können Sie an einer der LST-Stationen einen COVID-19-Test erhalten. Eine ärztliche Verschreibung <b>kann nicht</b> an einer LST-Station  verwendet werden. <b>Warten Sie nicht</b> auf eine LST-Einladung, wenn Sie den Verdacht haben, COVID-19 zu haben.
             <br><br>
-            2. If you have received a <b>medical prescription for a COVID-19 test from your doctor</b>, you can get a COVID-19 test by <b>making an appointment</b> at one of the testing laboratories in Luxembourg (Bionext Lab, Laboratories Ketterhill, and Laboratories Réunis). An LST invitation <b>cannot</b> be used at any testing laboratory.
+            2. Wenn Sie von <b>Ihrem Arzt ein ärztliches Rezept für einen COVID-19-Test</b> erhalten haben, können Sie einen COVID-19-Test erhalten, indem Sie <b>einen Termin</b> in einem der Testlabors in Luxemburg (Bionext Lab, Laboratories Ketterhill und Laboratories Réunis) vereinbaren. Eine LST-Einladung <b>kann nicht</b> in einem Prüflabor verwendet werden.
             <br><br>
-            3. If you show symptoms of COVID-19 but you <b>do not have an LST invitation or a medical prescription for a COVID-19 test</b>, then you can go, without an appointment, to one of the COVID-19 Consultation Centres (CCC) located in Luxembourg-Kirchberg and Esch/Alzette.
+            3. Wenn Sie Symptome von COVID-19 zeigen, aber <b>keine LST-Einladung oder ein ärztliches Rezept für einen COVID-19-Test</b> haben, können Sie ohne Termin zu einem der COVID-19-Beratungszentren gehen, die in Luxemburg-Kirchberg und Esch / Alzette befinden.
             <br><br>
-            For more information about testing in Luxembourg, please visit this <a target='_blank' href='https://covid19.public.lu/en/testing.html'>website</a>. 
+            Weitere Informationen zum Testen in Luxemburg finden Sie <a target='_blank' href='https://covid19.public.lu/de/testing.html'>here</a>. 
             <br><br><hr><br>
-            If you have received a Large Scale Testing (LST) invitation, you can get a COVID-19 test at one of the LST stations. A medical prescription cannot be used at an LST station. Do not wait for an LST invitation if you suspect that you may have COVID-19.
+            Wenn Sie eine LST-Einladung (Large Scale Testing) erhalten haben, können Sie an einer der LST-Stationen einen COVID-19-Test erhalten. An einer LST-Station kann kein medizinisches Rezept verwendet werden. Warten Sie nicht auf eine LST-Einladung, wenn Sie dies vermuten dass Sie COVID-19 haben können.
             <br><br>
-            Below please find information for all  LST stations:
+            Nachfolgend finden Sie Informationen zu allen LST-Stationen:
             `;
         for (var i = 0; i < testingCentres.length; i++) {
           var testingCentre = testingCentres[i];
@@ -857,6 +874,8 @@ window.onload = function () {
       response.style.opacity = "0";
       response.innerHTML = "";
       // need to still implement filter for communes>1
+      // store number of pharmacies given
+      var counter = 0;
       for (var i = 0; i < pharmacies.length; i++) {
         let pharmacy = pharmacies[i];
         // if no communes mentioned
@@ -868,12 +887,14 @@ window.onload = function () {
             pharmacy["address"] +
             "</h3><br><span class='subheader'><b>T</b></span>:<p>" +
             pharmacy["number"] +
-            "</p><br><span class='subheader'><b>Opening Hours</b></span>:<p>" +
+            "</p><br><span class='subheader'><b>Öffnungszeit</b></span>:<p>" +
             pharmacy["times"] +
             "</p></div>";
           listFacilities.innerHTML += content;
         } else {
           if (pharmacy["commune"].toLowerCase() == communes[0].toLowerCase()) {
+            // update counter
+            counter++;
             let content =
               "<div class='pharmacy'><b><h2>" +
               pharmacy["name"] +
@@ -881,10 +902,14 @@ window.onload = function () {
               pharmacy["address"] +
               "</h3><br><span class='subheader'><b>T</b></span>:<p>" +
               pharmacy["number"] +
-              "</p><br><span class='subheader'><b>Opening Hours</b></span>:<p>" +
+              "</p><br><span class='subheader'><b>Öffnungszeit</b></span>:<p>" +
               pharmacy["times"] +
               "</p></div>";
             listFacilities.innerHTML += content;
+          }
+          if (counter == 0) {
+            response.style.opacity = "1";
+            noResponse();
           }
         }
       }
@@ -892,26 +917,26 @@ window.onload = function () {
       const hospitalCHL = {
         "name": "Center Hospitalier de Luxembourg (CHL)",
         "address": "4 Rue Nicolas Ernest Barblé, L-1210 Luxembourg",
-        "number": "Hospital: +352 44 11 1 | Emergency Room: +352 4411 2132",
-        "times": "Mon-Sun: 00:00 - 23:59 for emergencies",
+        "number": "Krankenhaus: +352 44 11 1 | Notaufnahme: +352 4411 2132",
+        "times": "Mon-Son: 00:00 - 23:59 für Notfälle",
       };
       const hospitalKirchberg = {
         "name": "Robert Schuman Hospital - Hospital Kirchberg (HK)",
         "address": "9 Rue Edward Steichen, L-2540 Luxembourg",
-        "number": "Hospital: +352 24 68 1 | Emergency Room: +352 2468 5600",
-        "times": "Mon-Sun: 00:00 - 23:59 for emergencies",
+        "number": "Krankenhaus: +352 24 68 1 | Notaufnahme: +352 2468 5600",
+        "times": "Mon-Son: 00:00 - 23:59 für Notfälle",
       };
       const hospitalMayrisch = {
         "name": "Centre Hospitalier Emile Mayrisch",
         "address": "Rue Emile Mayrisch, L-4240 Esch/Alzette",
-        "number": "Hospital: +352 57 11 1 | Emergency Room: +352 5711 73400",
-        "times": "Mon-Sun: 00:00 - 23:59 for emergencies",
+        "number": "Krankenhaus: +352 57 11 1 | Notaufnahme: +352 5711 73400",
+        "times": "Mon-Son: 00:00 - 23:59 für Notfälle",
       };
       const hospitalEttelbruck = {
         "name": "Centre Hospitalier du Nord - Site Ettelbruck",
         "address": "120, Avenue Salentiny, L-9080 Ettelbruck",
-        "number": "Hospital: +352 81 66 1 | Emergency Room: +352 8166 65351",
-        "times": "Mon-Sun: 00:00 - 23:59 for emergencies",
+        "number": "Krankenhaus: +352 81 66 1 | Notaufnahme: +352 8166 65351",
+        "times": "Mon-Son: 00:00 - 23:59 für Notfälle",
       };
       const hospitals = [
         hospitalCHL,
@@ -931,7 +956,7 @@ window.onload = function () {
           hospital["address"] +
           "</h3><br><span class='subheader'><b>T</b></span>:<p>" +
           hospital["number"] +
-          "</p><br><span class='subheader'><b>Opening Hours</b></span>:<p>" +
+          "</p><br><span class='subheader'><b>Öffnungszeit</b></span>:<p>" +
           hospital["times"] +
           "</p></div>";
         listFacilities.innerHTML += content;
@@ -950,70 +975,72 @@ window.onload = function () {
         data["prediction"]["entities"][
           "isolation_quarantine_self-monitoring"
         ][0][0];
-      if (entity == "isolation") {
+      if (entity == "isolieren") {
         response.innerHTML = `
-            Isolation applies to people who have been <b>confirmed as being infected by COVID-19</b>. 
+        Die Isolation gilt für Personen mit <b>einer bestätigten COVID-19-Infektion</b>.
             <br><br>
-            Isolation is prescribed by the Health Directorate for at least 10 days after either:
-         a) the onset of symptoms, or
-         b) the day of sampling for asymptomatic cases.
+            Die Isolierung wird von der Gesundheitsdirektion für mindestens 10 Tage vorgeschrieben, entweder nachdem:
+         a) das Einsetzen von Symptomen, oder
+         b) der Tag der Probenahme für asymptomatische Fälle.
          <br><br>
-         For more information, please visit this <a target='_blank' href='https://covid19.public.lu/en/health-protection/isolation-quarantine-treatment.html'>website</a>. 
+         Weitere Informationen finden Sie <a target='_blank' href='https://covid19.public.lu/de/gesundheit-schutz/isolation-quarantaene-behandlung.html'>hier</a>. 
             `;
-      } else if (entity == "quarantine") {
+      } else if (entity == "Quarantäne") {
         response.innerHTML = `
-            Quarantine applies to people who have had <b>high-risk contact with a confirmed case of COVID-19</b>. 
+        Die Quarantäne gilt für Personen, die <b>engen Kontakt zu einer Person hatten, die nachweislich infiziert ist</b>. 
             <br><br>
-            High-risk contact includes, but is not limited to, the following:
+            Engen Kontakt gehören unter anderem: 
             <br>
-            - Face-to-face contact of more than 15 minute
+            - Kontakt von Angesicht zu Angesicht von mehr als 15 Minuten 
             <br>
-            - Unprotected physical contact
+            - Ungeschützter physischer Kontakt
             <br><br>
-            Quarantine involves staying at home for 7 days counting from the day of last contact with the infected person.
+            Bei der Quarantäne bleibt man 7 Tage zu Hause, gerechnet ab dem Tag des letzten Kontakts mit der infizierten Person. 
             <br><br>
-            For more information, please visit this <a target='_blank' href='https://covid19.public.lu/en/health-protection/isolation-quarantine-treatment.html'>website</a>. 
+            Weitere Informationen finden Sie <a target='_blank' href='https://covid19.public.lu/de/gesundheit-schutz/isolation-quarantaene-behandlung.html'>hier  </a>. 
             `;
-      } else if (entity == "self-monitoring") {
+      } else if (entity == "Selbstüberwachung") {
         response.innerHTML = `
-            Self-monitoring applies to people who have had <b>low-risk contact with a confirmed case of COVID-19</b>.
+        Die Selbstüberwachung gilt für Personen, die Kontakt mit <b>geringem Ansteckungsrisiko zu einer Person hatten, deren Infektion bestätigt ist</b>.
             <br><br>
-            Self-monitoring involves checking symptoms for 14 days, such as:
+            Bei der Selbstüberwachung werden die Symptome 14 Tage lang überprüft, zum Beispiel:
             <br>
-            - taking temperature twice a day
+            - zweimal täglich Temperatur messen
             <br>
-            - checking for other COVID-19 symptoms
+            - Überprüfung auf andere COVID-19 Symptome
             <br><br>
-            For more information, please visit this <a target='_blank' href='https://covid19.public.lu/en/health-protection/isolation-quarantine-treatment.html'>website</a>. 
+            Weitere Informationen finden Sie <a target='_blank' href='https://covid19.public.lu/de/gesundheit-schutz/isolation-quarantaene-behandlung.html'>hier</a>. 
             `;
       }
     } else if (data["prediction"]["entities"]["sectors_for_measures"]) {
       let entity = data["prediction"]["entities"]["sectors_for_measures"][0][0];
-      if (entity == "people") {
+      if (entity == "Menschen") {
         response.innerHTML = `
-            To control the spread of the coronavirus, the population should follow certain protective measures. 
+        Um die Ausbreitung des Coronavirus zu kontrollieren, sollte die Bevölkerung bestimmte Schutzmaßnahmen ergreifen.
             <br><br>
-            Protective measures include, but are not limited to, the following:
+            Schutzmaßnahmen umfassen, ohne darauf beschränkt zu sein, Folgendes:
             <br>
-            - wearing a mask
+            - eine Maske tragen
             <br>
-            - maintaining at least a 2-meter distance between people
+            - Abstand von mindestens 2 Metern zwischen Personen halten
             <br>
-            - regularly washing hands thoroughly
+            - Hände regelmäßig und gründlich waschen
             <br><br>
-            For more information on protective measures, please visit this <a href='https://covid19.public.lu/en/health-protection/protective-measures.html' target='_blank'>website</a>. 
+            Weitere Informationen zu Schutzmaßnahmen finden Sie <a href='https://covid19.public.lu/de/gesundheit-schutz/barrieremassnahmen.html' target='_blank'>hier</a>. 
             `;
-      } else if (entity == "hospital") {
+      } else if (entity == "Krankenhaus") {
         response.innerHTML = `
-            Please visit this <a target='_blank' href='https://covid19.public.lu/en/sanitary-measures/hospitals-physicians.html'>website</a> for information on all sanitary measures that are in place for hospitals and physicians. 
+        Auf <a target='_blank' href='https://covid19.public.lu/de/hygienemassnahmen/krankenhaus-arzt.html'>dieser Website</a> finden Sie Informationen zu allen Präventionsmaßnahmen für Krankenhäuser und Ärzte.
             `;
-      } else if (entity == "curfew") {
+      } else if (entity == "Ausgangssperre") {
+        //weird
         response.innerHTML = `
-            Please visit this <a target='_blank' href='https://covid19.public.lu/en/sanitary-measures/curfew.html'>website</a> for information on all measures that are in place for the curfew.
+            Auf <a target='_blank' href='https://covid19.public.lu/de/hygienemassnahmen/ausgangssperre.html'>dieser Website</a> finden Sie Informationen zu allen Maßnahmen für die Ausangssperre.
             `;
       } else if (entity == "public transport") {
+        //weird
         response.innerHTML = `
-            Please visit this <a target='_blank' href='https://covid19.public.lu/en/sanitary-measures/public-transport.html'>website</a> for information on all sanitary measures that are in place for public transport.
+            Auf <a target='_blank' href='https://covid19.public.lu/de/hygienemassnahmen/opnv.html'>dieser Website</a> finden Sie Informationen zu allen Präventionsmaßnahmen für öffentlicher Personennahverkehhr.
             `;
       } else if (entity == "restaurant") {
         response.innerHTML = `
@@ -1328,6 +1355,6 @@ window.onload = function () {
 
   function noResponse() {
     response.innerHTML =
-      "Sorry, we couldn't find what you were looking for.<br><span>🤷‍♂️</span>";
+      "Leider konnten wir nicht finden, wonach Sie gesucht haben.<br><span>🤷‍♂️</span>";
   }
 };

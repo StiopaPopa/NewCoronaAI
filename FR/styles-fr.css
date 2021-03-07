@@ -12,7 +12,23 @@ html {
 }
 
 html {
-  background-image: url(../bg.png);
+  background: rgb(7, 78, 150);
+  background: -moz-linear-gradient(
+    243deg,
+    rgba(7, 78, 150, 1) 35%,
+    rgba(22, 157, 198, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    243deg,
+    rgba(7, 78, 150, 1) 35%,
+    rgba(22, 157, 198, 1) 100%
+  );
+  background: linear-gradient(
+    243deg,
+    rgba(7, 78, 150, 1) 35%,
+    rgba(22, 157, 198, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#074e96",endColorstr="#169dc6",GradientType=1);
 }
 
 .nav a {

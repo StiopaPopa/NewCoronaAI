@@ -857,6 +857,8 @@ window.onload = function () {
       response.style.opacity = "0";
       response.innerHTML = "";
       // need to still implement filter for communes>1
+      // store number of pharmacies given
+      var counter = 0;
       for (var i = 0; i < pharmacies.length; i++) {
         let pharmacy = pharmacies[i];
         // if no communes mentioned
@@ -885,6 +887,10 @@ window.onload = function () {
               pharmacy["times"] +
               "</p></div>";
             listFacilities.innerHTML += content;
+          }
+          if (counter == 0) {
+            response.style.opacity = "1";
+            noResponse();
           }
         }
       }

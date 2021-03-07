@@ -633,7 +633,7 @@ window.onload = function () {
         let latestDate = CSV[CSV.length - 1]["Date"];
         response.innerHTML =
           latestStat +
-          " people were last recorded in standard care as of " +
+          " people were <b>last</b> recorded in standard care as of " +
           latestDate;
       }
     } else if (entity["intensive_care"]) {
@@ -807,7 +807,7 @@ window.onload = function () {
         <br>
         - <a target='_blank' href='https://www.ketterthill.lu/en/test-coronavirus.html'>Laboratoires Ketterthill</a>
         <br>
-        - <a target='_blank' href='https://www.labo.lu/en/index'>Laboratoires Réunis</a> (Strasses and P&R Junglinster)
+        - <a target='_blank' href='https://www.labo.lu/en/index'>Laboratoires Réunis</a> 
         <br>
         - <a target='_blank' href='https://rdv.lns.lu/en/index.html'>Sampling Centre (Centre de prélèvement) for COVID-19 tests LNS</a> in Dudelange for people over 6 years old. Open by appointment only (appointments can be made via www.lns.lu). 
         <br>
@@ -856,6 +856,8 @@ window.onload = function () {
       response.style.opacity = "0";
       response.innerHTML = "";
       // need to still implement filter for communes>1
+      // store number of pharmacies given
+      var counter = 0;
       for (var i = 0; i < pharmacies.length; i++) {
         let pharmacy = pharmacies[i];
         // if no communes mentioned
@@ -884,6 +886,10 @@ window.onload = function () {
               pharmacy["times"] +
               "</p></div>";
             listFacilities.innerHTML += content;
+          }
+          if (counter == 0) {
+            response.style.opacity = "1";
+            noResponse();
           }
         }
       }
